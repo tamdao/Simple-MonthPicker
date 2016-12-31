@@ -495,7 +495,7 @@ if (window['jQuery']) {
             switch (mode) {
                 case "ctor":
                     if (item.tagName == "INPUT" && (item.getAttribute("type") == "text" || item.getAttribute("type") === null)) {
-                        new Monthpicker(<HTMLInputElement>item, args);
+                        return new Monthpicker(<HTMLInputElement>item, args);
                     } else {
                         console.error("Monthpicker must be called on a text input");
                     }
@@ -504,6 +504,7 @@ if (window['jQuery']) {
                     if (item.tagName == "INPUT" && (item.getAttribute("type") == "text" || item.getAttribute("type") === null)) {
                         var mpck = Monthpicker.Get(<HTMLInputElement>item);
                         mpck.UpdateOptions(extraArgs);
+                        return mpck;
                     } else {
                         console.error("Monthpicker must be called on a text input");
                     }
