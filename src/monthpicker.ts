@@ -490,27 +490,28 @@ if (window['jQuery']) {
             console.error("Error : Monthpicker - bad argument (1)");
             return;
         }
+        var mpck;
         window['jQuery'](this).each(function(i: number, item: Element)
         {
             switch (mode) {
                 case "ctor":
                     if (item.tagName == "INPUT" && (item.getAttribute("type") == "text" || item.getAttribute("type") === null)) {
-                        return new Monthpicker(<HTMLInputElement>item, args);
+                        mpck = new Monthpicker(<HTMLInputElement>item, args);
                     } else {
                         console.error("Monthpicker must be called on a text input");
                     }
                     break;
                 case "option":
                     if (item.tagName == "INPUT" && (item.getAttribute("type") == "text" || item.getAttribute("type") === null)) {
-                        var mpck = Monthpicker.Get(<HTMLInputElement>item);
+                        mpck = Monthpicker.Get(<HTMLInputElement>item);
                         mpck.UpdateOptions(extraArgs);
-                        return mpck;
                     } else {
                         console.error("Monthpicker must be called on a text input");
                     }
                     break;
             }
         });
+        return mpck;
     }
 }
 
