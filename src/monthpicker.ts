@@ -318,26 +318,23 @@ class Monthpicker
         }, true);
 
         // Year switches
-        this.parent.querySelector(".yearSwitch.down").addEventListener("click", function(e)
+        this.parent.querySelector(".yearSwitch.down").addEventListener("click", function()
         {
             Monthpicker.instances[this.closest(".monthpicker").dataset.mp].PrevYear();
-            e.preventDefault();
         }, false);
-        this.parent.querySelector(".yearSwitch.up").addEventListener("click", function(e)
+        this.parent.querySelector(".yearSwitch.up").addEventListener("click", function()
         {
             Monthpicker.instances[this.closest(".monthpicker").dataset.mp].NextYear();
-            e.preventDefault();
         }, false);
 
         // Months
         var months = this.parent.querySelectorAll(".monthpicker_selector>table tr:not(:first-child) td.month");
         for (var i = 0; i < months.length; i++) {
-            months[i].addEventListener("click", function(e)
+            months[i].addEventListener("click", function()
             {
                 if (!this.classList.contains("off")) {
                     Monthpicker.instances[this.closest(".monthpicker").dataset.mp].SelectMonth(this.dataset.m);
                 }
-                e.preventDefault();
             }, false);
         }
     }
