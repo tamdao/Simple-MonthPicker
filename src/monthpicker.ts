@@ -308,11 +308,11 @@ class Monthpicker
         // -- EVENTS PREPARATION
 
         // Main input field
-        this.parent.addEventListener("focusin", function()
+        this.parent.addEventListener("focus", function()
         {
             Monthpicker.instances[this.dataset.mp].Show();
         }, true);
-        this.parent.addEventListener("focusout", function()
+        this.parent.addEventListener("blur", function()
         {
             Monthpicker.instances[this.dataset.mp].Hide();
         }, true);
@@ -322,12 +322,12 @@ class Monthpicker
         {
             Monthpicker.instances[this.closest(".monthpicker").dataset.mp].PrevYear();
             e.preventDefault();
-        });
+        }, true);
         this.parent.querySelector(".yearSwitch.up").addEventListener("click", function(e)
         {
             Monthpicker.instances[this.closest(".monthpicker").dataset.mp].NextYear();
             e.preventDefault();
-        });
+        }, true);
 
         // Months
         var months = this.parent.querySelectorAll(".monthpicker_selector>table tr:not(:first-child) td.month");
@@ -338,7 +338,7 @@ class Monthpicker
                     Monthpicker.instances[this.closest(".monthpicker").dataset.mp].SelectMonth(this.dataset.m);
                 }
                 e.preventDefault();
-            });
+            }, true);
         }
     }
 
