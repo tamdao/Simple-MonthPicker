@@ -308,11 +308,11 @@ class Monthpicker
         // -- EVENTS PREPARATION
 
         // Main input field
-        this.parent.addEventListener("focus", function()
+        this.parent.addEventListener("focusin", function()
         {
             Monthpicker.instances[this.dataset.mp].Show();
         }, true);
-        this.parent.addEventListener("blur", function()
+        this.parent.addEventListener("focusout", function()
         {
             Monthpicker.instances[this.dataset.mp].Hide();
         }, true);
