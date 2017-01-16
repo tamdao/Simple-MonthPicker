@@ -322,12 +322,12 @@ class Monthpicker
         {
             Monthpicker.instances[this.closest(".monthpicker").dataset.mp].PrevYear();
             e.preventDefault();
-        }, true);
+        }, false);
         this.parent.querySelector(".yearSwitch.up").addEventListener("click", function(e)
         {
             Monthpicker.instances[this.closest(".monthpicker").dataset.mp].NextYear();
             e.preventDefault();
-        }, true);
+        }, false);
 
         // Months
         var months = this.parent.querySelectorAll(".monthpicker_selector>table tr:not(:first-child) td.month");
@@ -338,7 +338,7 @@ class Monthpicker
                     Monthpicker.instances[this.closest(".monthpicker").dataset.mp].SelectMonth(this.dataset.m);
                 }
                 e.preventDefault();
-            }, true);
+            }, false);
         }
     }
 
